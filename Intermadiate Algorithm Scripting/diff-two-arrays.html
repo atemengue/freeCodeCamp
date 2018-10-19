@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function diffArray(arr1, arr2) {
+        var newArr = [];
+  // Same, same; but different.
+        var minArr = [];
+        var maxArr = [];
+
+        if (arr1.length > arr2.length) {
+            maxArr = [...arr1];
+            minArr = [...arr2];
+        } else if ( arr1. length < arr2.length) {
+            maxArr = [...arr2];
+            minArr = [...arr1];
+        } else {
+            maxArr = arr1 ;
+            minArr = arr2;
+        }
+
+        maxArr.map((value)=> {
+          if (!minArr.includes(value)) {
+              newArr.push(value);
+          }
+        })
+
+        minArr.map((value)=> {
+          if (!maxArr.includes(value)) {
+            newArr.push(value);
+
+          }
+        });
+
+        console.log(newArr);
+
+        // console.log(maxArr, 'Array max');
+        // console.log(minArr, 'Array min');
+        return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], 
+ ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+
+ diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"],
+  ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+
+
+diffArray(["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"]);
+
+  diffArray(["andesite", "grass", "dirt", "dead shrub"], ["andesite", "grass", "dirt", "dead shrub"])
+  
+  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5])
+    
+    </script>
+</body>
+</html>

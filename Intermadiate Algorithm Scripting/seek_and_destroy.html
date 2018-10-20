@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Seek and Destroy</title>
+</head>
+<body>
+
+  <script>
+    
+  function destroyer(arr) {
+    // Remove all the values
+    let newArr = [...arr];
+    arr.map(value => {
+      for(let i = 0; i < arguments.length; i++) {
+
+        console.log(arguments[i], 'Argument');
+        if (value === arguments[i]) {
+           newArr.splice(newArr.indexOf(value),1);
+         }
+      }
+    });
+
+    console.log(newArr)
+    return arr;
+  }
+
+  destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+  </script>
+</body>
+</html>

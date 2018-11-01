@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pig Latin</title>
+</head>
+<body>
+  <script>
+  
+  /** first version **/
+  function translatePigLatin(str) {
+
+    function isVowel(x) { return (/^[aeiou]$/gi).test(x)}
+      
+      if (isVowel(str[0])) {
+        return `${str}way`;
+      }
+
+        if (!(/[aeuio]/).test(str)) {
+        return str + 'ay'
+      } 
+    
+    let conNumber = str.indexOf(str.match(/[aeuio]/g)[0]);
+    let secondPart = str.substr(conNumber);
+    for(let i = 0 ; i < conNumber ; i++) {
+      secondPart = `${secondPart}${str[i]}`    
+    }
+    console.log(secondPart);
+
+  }
+
+/** second version **/
+  function translatePigLatin1(str = '' ) {
+    let test = true;
+    let temp1 = [];
+    let temp2 = [];
+    function isVowel(x) { return (/^[aeiou]$/g).test(x)}
+   
+    if (isVowel(str[0])) { return `${str}way`}
+    if (!(/[aeuio]/).test(str)) { return str + 'ay' } 
+    
+    temp1 =  str.split("");
+    while (test) {
+      let consonnant  = temp1.shift();
+      temp2.push(consonnant)
+      if (isVowel(consonnant)) {
+        test = false;
+      }
+    }
+    temp1.unshift(temp2.pop());
+    return temp1.join('') + temp2.join('') + 'ay'; 
+    
+  }
+
+  translatePigLatin1('california')
+  </script>
+</body>
+</html>

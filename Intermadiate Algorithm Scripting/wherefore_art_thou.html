@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wherefore art thou</title>
+</head>
+<body>
+
+  <script>
+    function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+    var valueProperty = null;
+    var sourceProperty = Object.getOwnPropertyNames(source);
+    collection.map(value => {
+    valueProperty = Object.getOwnPropertyNames(value) 
+
+      if (valueProperty.length >= sourceProperty.length) {
+
+        arr.push(value);
+        
+        
+        //  sourceProperty.map( element => {
+        //     if ( &&value[element] === source[element]) {
+        //       arr.push(value)
+        //     }
+        //  });
+      }
+
+      
+    });
+
+      console.log(arr)
+
+
+
+    // Only change code above this line
+    return arr;
+}
+
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 })
+  </script>
+  
+</body>
+</html>

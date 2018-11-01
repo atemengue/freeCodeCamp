@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Search and Replace</title>
+</head>
+<body>
+
+  <script>
+  
+  function myReplace(str, before, after) {
+
+    function isLower(x) { return /[A-Z]/.test(before)}
+    function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();}
+
+    let re = new RegExp(before);
+
+     return !isLower(before) ? str.replace(re,after) : str.replace(re,capitalize(after));
+  }
+
+  myReplace("Let us go to the store", "store", "mall");
+  myReplace("He is Sleeping on the couch", "Sleeping", "sitting")
+  </script>
+  
+</body>
+</html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -44,5 +45,51 @@
 whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 })
   </script>
   
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    function whatIsInAName(collection, source) {
+        // What's in a name?
+        var arr = [];
+
+        function getArrayNames(obj) {
+            return Object.getOwnPropertyNames(obj)
+        }
+        // Only change code below this line
+        let srcProperty = getArrayNames(source);
+        let srclengthObj = srcProperty.length;
+        
+        collection.map((element) => {
+             if ( getArrayNames(element).length > srclengthObj) { 
+                 let result = srcProperty.reduce((acc, value) => source[value] === element[value], true);
+                if (result) {
+                    arr.push(element)
+                 }
+             } 
+             if (getArrayNames(element).length === srclengthObj) {
+                let boolArray = [];
+                srcProperty.map((value) => {
+                    boolArray.push(element.hasOwnProperty(value) && element[value] === source[value])
+                });
+               if (boolArray.reduce((acc, val) => acc && val, true)) {
+                   arr.push(element)
+               }
+             }
+
+        });
+        console.log(arr)
+        // Only change code above this line
+        return arr;
+        }
+    </script>
+
+
+>>>>>>> f3dc85dd5a88e4b97bc07cd4b31c61b42104b81e
 </body>
 </html>

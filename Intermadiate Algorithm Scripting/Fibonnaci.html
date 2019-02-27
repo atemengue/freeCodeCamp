@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+</body>
+<script>
+
+
+function fibonacci(num) {
+  if (num <= 1) return 1;
+
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+  function sumFibs(num) {
+    let i = 0 ;
+    let somme = 0;
+
+    while(i <= num){
+      let value = fibonacci(i);
+      if (value % 2 !== 0 && value <= num){
+        somme += value;
+      }
+      i++;
+    }
+
+    console.log(somme);
+    return somme;
+  }
+
+  sumFibs(75025);
+
+</script>
+</html>

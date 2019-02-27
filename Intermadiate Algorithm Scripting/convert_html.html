@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+function setCharAt(str,index,string) {
+    if(index > str.length-1) return str;
+    return str.substr(0,index) + string + str.substr(index+1);
+}
+
+  function convertHTML(str) {
+
+  let code = {
+    '&': 'amp',
+    '<': 'lt',
+    '>': 'gt',
+    '\'': 'apos',
+    '\"': 'quot'
+  }
+
+  
+  let arrayCode = Object.getOwnPropertyNames(code);
+
+  arrayCode.map((character,index) => {
+    let pos = str.indexOf(character);
+    while (pos != -1) {
+      str = setCharAt(str,pos,`&${code[character]};`);
+      pos = str.indexOf(character, pos+1);
+    }
+  })
+  return str;
+}
+
+convertHTML("Dolce & Gabbana >");
+
+
+
+</script>
+</html>

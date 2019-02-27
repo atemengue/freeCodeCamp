@@ -13,30 +13,15 @@
 </body>
 <script>
 
-  let tempArray = [];
-  let str = "ATCG";
-  const T1 = ['A','T'];
-  const T2 = ['C','G'];
-
-  for(let i = 0 ; i < str.length ; i++ ) {
-    tempArray.push([str[i]])
-    let val = str[i];
-    if (T1.includes(val)) {
-      if (T1.indexOf(val) === 0){
-        tempArray[i].push(T1[1]);
-      } else {
-        tempArray[i].push(T1[0]);
-      }
-    } else {
-      if (T2.indexOf(val) === 0){
-        tempArray[i].push(T2[1]);
-      } else {
-        tempArray[i].push(T2[0]);
-      }
+function skippedLetter(str) {
+    for (var i = 0; i < str.length - 1; i++) {
+        if (str.charCodeAt(i + 1) - str.charCodeAt(i) != 1) {
+            return String.fromCharCode(str.charCodeAt(i) + 1);
+        }
     }
-  }
+}
 
-return tempArray;
+alert(skippedLetter('abce'));
 
 </script>
 </html>
